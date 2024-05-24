@@ -1,0 +1,39 @@
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* Secondry Button Anim */
+.button-anim > div {
+    border-radius: 24px;
+}
+
+.button-anim:hover > div {
+    animation: anim 0.3s linear forwards;
+}
+
+.button-anim:not(:hover) > div {
+    animation: animBack 0.3s linear;
+}
+
+@keyframes anim {
+    0% {
+        width: 80%;
+    }
+    99% {
+        width: 0;
+    }
+    100% {
+        display: none;
+    }
+}
+
+@keyframes animBack {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%;
+    }
+}
