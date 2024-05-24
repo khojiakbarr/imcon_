@@ -9,15 +9,16 @@ export default function Hero() {
   useLayoutEffect(() => {
     gsap.from(".bg_hero", {
       opacity: 0,
-      duration: 1.5,
+      duration: 2,
       x: 100,
     });
     gsap.from(".hero_title", {
       opacity: 0,
-      duration: 1.5,
+      duration: 2,
       y: -50,
     });
   }, []);
+
   return (
     <div className="my-[40px]">
       <div className="container ">

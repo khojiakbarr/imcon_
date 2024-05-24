@@ -1,19 +1,8 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
+
 import "./Advanyages.css";
-import images from "../../../assets/images";
 
 export default function Advantages() {
-  const [state, setState] = useState(false);
-  gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {
-    if (window.innerWidth < 768) {
-      setState(true);
-    }
-  }, []);
-
   return (
     <section className="md:my-[30px] my-[60px] relative ">
       <div className="container">
