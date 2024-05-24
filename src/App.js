@@ -11,12 +11,13 @@ import Hero from "./components/sections/Hero";
 import AboutUs from "./components/sections/AboutUs";
 import Service from "./components/sections/Service";
 import Advantages from "./components/sections/Advantages/Advantages";
-import ScrollSmoother from "gsap-trial/ScrollSmoother";
+import ScrollSmoother from "gsap/ScrollSmoother";
 import gsap from "gsap";
 
 function App() {
   const wrapperRef = useRef();
   const contentRef = useRef();
+
   gsap.registerPlugin(ScrollSmoother);
   useEffect(() => {
     ScrollSmoother.create({
