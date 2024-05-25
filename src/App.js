@@ -6,7 +6,7 @@ import Faq from "./components/sections/Faq";
 import OurClients from "./components/sections/OurClients";
 import HowWeWork from "./components/sections/HowWeWork";
 import Header from "./components/sections/Header/Header";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Hero from "./components/sections/Hero";
 import AboutUs from "./components/sections/AboutUs";
 import Service from "./components/sections/Service";
@@ -15,6 +15,11 @@ import ScrollSmoother from "gsap/ScrollSmoother";
 import gsap from "gsap";
 
 function App() {
+  // lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+  const contactSec = useRef();
+  const [newState, setState] = useState({
+    contact: contactSec?.current,
+  });
   const wrapperRef = useRef();
   const contentRef = useRef();
 
@@ -33,7 +38,7 @@ function App() {
   return (
     <div ref={wrapperRef} className="wrapper">
       <div ref={contentRef} className="content">
-        <Header />
+        <Header newState={newState} />
         <Hero />
         <AboutUs />
         <Service />
@@ -43,7 +48,7 @@ function App() {
         <Portfolio />
         <CompaniesWeWork />
         <Faq />
-        <ContactUs />
+        <ContactUs newState={newState} setState={setState} />
       </div>
     </div>
   );

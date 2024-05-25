@@ -43,9 +43,6 @@ export default function Advantages() {
                   solutions that align perfectly with your unique business goals
                   and needs.
                 </p>
-
-
-                
               </div>
             </div>
             <div className="flex justify-center mt-[30px]">

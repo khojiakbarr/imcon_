@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./style.css";
+import images from "../../assets/images";
 
 export default function InfinityScrolls() {
   const scrollerContainer = useRef();
@@ -22,8 +23,6 @@ export default function InfinityScrolls() {
   }
 
   useEffect(() => {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    }
     Animation();
   }, []);
 
@@ -32,25 +31,25 @@ export default function InfinityScrolls() {
       <div className="scroller">
         <ul className="tag-list scroller__inner">
           <li className="">
-            <img src="" alt="img" />
+            <img className="rounded-[10px]" src={images.nodeJsIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.phpIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.javasicrpIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img className="" src={images.pytonIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.reactIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.vueIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.nextIcon} alt="img" />
           </li>
         </ul>
       </div>
@@ -58,25 +57,31 @@ export default function InfinityScrolls() {
       <div className="scroller" data-direction="right">
         <ul className="tag-list scroller__inner">
           <li>
-            <img src="" alt="img" />
+            <img src={images.figma} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.premerPro} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg"
+              alt="img"
+            />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.davinchi} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img src={images.photoIcon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img title="Adobe XD" src={images.XDicon} alt="img" />
           </li>
           <li>
-            <img src="" alt="img" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"
+              alt="img"
+            />
           </li>
         </ul>
       </div>

@@ -8,12 +8,19 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-export default function ContactUs() {
+export default function ContactUs({ newState, setState }) {
+  const contactRef = useRef();
+  useEffect(() => {
+    setState({ ...newState, contact: contactRef.current });
+  }, [contactRef]);
+
   return (
-    <div className="container">
-      <h2 className="text-[64px] font-extrabold text-[#3461FF] mb-[80px] lg:mb-[40px] lg:text-[48px] md:text-[38px] sm:text-[28px] sm:mb-[10px]">Contact us</h2>
+    <div ref={contactRef} className="container">
+      <h2 className="text-[64px] font-extrabold text-[#3461FF] mb-[80px] lg:mb-[40px] lg:text-[48px] md:text-[38px] sm:text-[28px] sm:mb-[10px]">
+        Contact us
+      </h2>
 
       <div className="w-full shadow-[2px_10px_28px_rgba(75,_0,_129,_0.12)] p-[40px_98px_88px] lg:px-[49px] lg:pb-[44px] md:p-[10px]">
         <h3 className="text-[20px] leading-[30px] font-[700] mb-[20px] sm:text-[18px]">
@@ -35,19 +42,7 @@ export default function ContactUs() {
               variant="outlined"
               type="email"
               required
-              sx={{ width: "100%", }}
-            />
-            <TextField
-              id="outlined-basic"
-              label="Briefly describe your project"
-              variant="outlined"
-              required
-              multiline
-              rows={8}
-              type="email"
-              sx={{
-                width: "100%",
-              }}
+              sx={{ width: "100%" }}
             />
 
             <button className="w-[50%] p-[10px_16px] bg-[#3461FF] text-[#fff] font-medium text-[16px] whitespace-nowrap leading-[20px] rounded-[8px] md:p-[12px_20px] sm:w-full">
@@ -167,7 +162,6 @@ export default function ContactUs() {
             </ul>
 
             <div className="w-[400px] h-[200px] lg:w-full md:h-[300px] sm:h-[200px]">
-              
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d95901.41990287448!2d69.2518912!3d41.3106176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1716037236791!5m2!1sru!2s"
                 width="100%"

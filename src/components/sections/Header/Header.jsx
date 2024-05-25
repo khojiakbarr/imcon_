@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import images from "../../../assets/images";
-export default function Header() {
+
+export default function Header({ newState }) {
   const [state, setState] = useState(false);
   useEffect(() => {
     window.onscroll = (e) => {
@@ -10,6 +11,10 @@ export default function Header() {
       }
     };
   }, []);
+
+  function smoothContact() {
+    newState.contact.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
     <div
@@ -57,7 +62,10 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <button className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[20px] font-[500] md:hidden ">
+          <button
+            onClick={() => smoothContact()}
+            className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[18px] font-[500] md:hidden "
+          >
             Contact now
           </button>
           <button
