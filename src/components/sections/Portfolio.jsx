@@ -4,7 +4,10 @@ import PortfolioCard from "../Cards/PortfolioCard";
 
 export default function Portfolio() {
   return (
-    <div className="w-full py-[80px] sm:py-[20px] lg:py-[40px]">
+    <div
+      id="portfolioSec"
+      className="w-full py-[80px] sm:py-[20px] lg:py-[40px]"
+    >
       <div className="container flex flex-col items-center">
         <h2 className="text-[#3461FF] sm:text-[14px]">Our Portfolio</h2>
 
@@ -17,7 +20,9 @@ export default function Portfolio() {
           Check our awesome portfolio<span className="text-[#3461FF]">.</span>
         </h3>
 
-        <h4 className="mt-5 mb-5 sm:mt-3 sm:text-[14px]">See what we do for our clients</h4>
+        <h4 className="mt-5 mb-5 sm:mt-3 sm:text-[14px]">
+          See what we do for our clients
+        </h4>
 
         <SecondaryButton />
 

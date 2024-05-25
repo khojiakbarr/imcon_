@@ -2,19 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import images from "../../../assets/images";
 
-export default function Header({ newState }) {
+export default function Header({ scrollToSection }) {
   const [state, setState] = useState(false);
   useEffect(() => {
-    window.onscroll = (e) => {
+    window.onscroll = () => {
       if (window.scrollY > 10) {
         setState(false);
       }
     };
   }, []);
-
-  function smoothContact() {
-    newState.contact.scrollIntoView({ behavior: "smooth" });
-  }
 
   return (
     <div
@@ -32,11 +28,30 @@ export default function Header({ newState }) {
 
           <ul className="flex items-center gap-[40px] md:hidden">
             <li className="text-[16px] font-[500] cursor-pointer">Home</li>
-            <li className="text-[16px] font-[500] cursor-pointer">About us</li>
-            <li className="text-[16px] font-[500] cursor-pointer">
+            <li
+              onClick={() =>
+                scrollToSection(window.document.querySelector("#aboutSec"))
+              }
+              className="text-[16px] font-[500] cursor-pointer"
+            >
+              About us
+            </li>
+            <li
+              onClick={() =>
+                scrollToSection(window.document.querySelector("#serviceSec"))
+              }
+              className="text-[16px] font-[500] cursor-pointer"
+            >
               Our services
             </li>
-            <li className="text-[16px] font-[500] cursor-pointer">Portfolio</li>
+            <li
+              onClick={() =>
+                scrollToSection(window.document.querySelector("#portfolioSec"))
+              }
+              className="text-[16px] font-[500] cursor-pointer"
+            >
+              Portfolio
+            </li>
           </ul>
 
           <div
@@ -46,24 +61,51 @@ export default function Header({ newState }) {
           >
             <ul className="flex items-center gap-[40px] flex-col">
               <li className="text-[16px] font-[500] cursor-pointer">Home</li>
-              <li className="text-[16px] font-[500] cursor-pointer">
+              <li
+                onClick={() =>
+                  scrollToSection(window.document.querySelector("#aboutSec"))
+                }
+                className="text-[16px] font-[500] cursor-pointer"
+              >
                 About us
               </li>
-              <li className="text-[16px] font-[500] cursor-pointer">
+              <li
+                onClick={() =>
+                  scrollToSection(window.document.querySelector("#serviceSec"))
+                }
+                className="text-[16px] font-[500] cursor-pointer"
+              >
                 Our services
               </li>
-              <li className="text-[16px] font-[500] cursor-pointer">
+              <li
+                onClick={() =>
+                  scrollToSection(
+                    window.document.querySelector("#portfolioSec")
+                  )
+                }
+                className="text-[16px] font-[500] cursor-pointer"
+              >
                 Portfolio
               </li>
               <li>
-                <button className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[20px] font-[500] ">
+                <button
+                  onClick={() =>
+                    scrollToSection(
+                      window.document.querySelector("#contactSec")
+                    )
+                  }
+                  className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[20px] font-[500] "
+                >
                   Contact now
                 </button>
               </li>
             </ul>
           </div>
+
           <button
-            onClick={() => smoothContact()}
+            onClick={() =>
+              scrollToSection(window.document.querySelector("#contactSec"))
+            }
             className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[18px] font-[500] md:hidden "
           >
             Contact now

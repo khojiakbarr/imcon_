@@ -1,8 +1,10 @@
 import React from "react";
 
 export default function AboutUs() {
+ 
+
   return (
-    <div className="py-[30px]">
+    <div id="aboutSec"  className="py-[30px]">
       <div className="container">
         <div className="wrapper flex justify-between mt-[20px] md:flex-wrap md:flex-col sm:items-center">
           <div className="wrapper_info grid grid-cols-2 gap-[30px] md:gap-[20px] md:grid-cols-4 md:place-content-center sm:grid-cols-2">

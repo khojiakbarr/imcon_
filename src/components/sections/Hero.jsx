@@ -3,7 +3,7 @@ import gsap from "gsap";
 import images from "../../assets/images";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function Hero() {
+export default function Hero({ scrollToSection }) {
   gsap.registerPlugin(ScrollTrigger);
 
   useLayoutEffect(() => {
@@ -28,7 +28,12 @@ export default function Hero() {
               Get our digital <br /> solutions for your problems
             </h3>
 
-            <button className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[20px] font-[500] mt-[20px]">
+            <button
+              onClick={() =>
+                scrollToSection(window.document.querySelector("#contactSec"))
+              }
+              className="bg-[#3460ff63] px-[20px] py-[5px] rounded-[15px] text-[20px] font-[500] mt-[20px]"
+            >
               Contact now
             </button>
           </div>

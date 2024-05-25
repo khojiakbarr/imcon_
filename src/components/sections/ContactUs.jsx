@@ -8,16 +8,11 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
-export default function ContactUs({ newState, setState }) {
-  const contactRef = useRef();
-  useEffect(() => {
-    setState({ ...newState, contact: contactRef.current });
-  }, [contactRef]);
-
+export default function ContactUs() {
   return (
-    <div ref={contactRef} className="container">
+    <div id="contactSec" className="container">
       <h2 className="text-[64px] font-extrabold text-[#3461FF] mb-[80px] lg:mb-[40px] lg:text-[48px] md:text-[38px] sm:text-[28px] sm:mb-[10px]">
         Contact us
       </h2>

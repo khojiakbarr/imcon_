@@ -6,7 +6,7 @@ import Faq from "./components/sections/Faq";
 import OurClients from "./components/sections/OurClients";
 import HowWeWork from "./components/sections/HowWeWork";
 import Header from "./components/sections/Header/Header";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Hero from "./components/sections/Hero";
 import AboutUs from "./components/sections/AboutUs";
 import Service from "./components/sections/Service";
@@ -15,15 +15,10 @@ import ScrollSmoother from "gsap/ScrollSmoother";
 import gsap from "gsap";
 
 function App() {
-  // lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
-  const contactSec = useRef();
-  const [newState, setState] = useState({
-    contact: contactSec?.current,
-  });
+  gsap.registerPlugin(ScrollSmoother);
   const wrapperRef = useRef();
   const contentRef = useRef();
 
-  gsap.registerPlugin(ScrollSmoother);
   useEffect(() => {
     ScrollSmoother.create({
       wrapper: wrapperRef?.current,
@@ -35,11 +30,18 @@ function App() {
     });
   }, []);
 
+  const scrollToSection = (section) => {
+    const targetSection = section;
+    if (targetSection) {
+      ScrollSmoother.get().scrollTo(targetSection, true, "top top");
+    }
+  };
+
   return (
     <div ref={wrapperRef} className="wrapper">
       <div ref={contentRef} className="content">
-        <Header newState={newState} />
-        <Hero />
+        <Header scrollToSection={scrollToSection} />
+        <Hero scrollToSection={scrollToSection} />
         <AboutUs />
         <Service />
         <Advantages />
@@ -48,7 +50,7 @@ function App() {
         <Portfolio />
         <CompaniesWeWork />
         <Faq />
-        <ContactUs newState={newState} setState={setState} />
+        <ContactUs />
       </div>
     </div>
   );
