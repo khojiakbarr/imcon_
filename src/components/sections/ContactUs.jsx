@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import { TextField } from "@mui/material";
+import { FormControl, InputLabel, TextField } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -9,8 +9,43 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import React from "react";
+import { useForm } from "react-hook-form";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
 
 export default function ContactUs() {
+  const CHAT_ID = "-4118474276";
+  const Token = "7304466654:AAE62YY9OMijvnkpWMpJjgDZC7I4SZnmLfE";
+  let URL_API = `https://api.telegram.org/bot${Token}/sendMessage`;
+
+  const { register, handleSubmit, reset } = useForm();
+
+  const sentMassageFn = async (data) => {
+    console.log(data);
+    let message = `<b>Contact </b> \n`;
+    message += `<b>Name: </b>${data.name}\n`;
+    message += `<b>Phone: </b>${data.phone}\n`;
+    message += `<b>Service: </b>${data.service}\n`;
+    reset();
+
+    try {
+      await axios.post(URL_API, {
+        chat_id: CHAT_ID,
+        parse_mode: "html",
+        text: message,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const [setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <div id="contactSec" className="container">
       <h2 className="text-[64px] font-extrabold text-[#3461FF] mb-[80px] lg:mb-[40px] lg:text-[48px] md:text-[38px] sm:text-[28px] sm:mb-[10px]">
@@ -23,24 +58,57 @@ export default function ContactUs() {
         </h3>
 
         <div className="flex justify-between md:flex-col md:gap-5">
-          <form className="flex flex-col items-start gap-[24px] w-[45%] md:w-[100%]">
+          <form
+            onSubmit={handleSubmit((data) => sentMassageFn(data))}
+            className="flex flex-col items-start gap-[24px] w-[45%] md:w-[100%]"
+          >
             <TextField
               id="outlined-basic"
               label="Name"
               variant="outlined"
               required
               sx={{ width: "100%" }}
+              name="Name"
+              {...register("name")}
             />
             <TextField
               id="outlined-basic"
-              label="Your email"
+              label="Phone number"
               variant="outlined"
-              type="email"
+              type="tel"
               required
               sx={{ width: "100%" }}
+              name="Phone"
+              {...register("phone")}
             />
 
-            <button className="w-[50%] p-[10px_16px] bg-[#3461FF] text-[#fff] font-medium text-[16px] whitespace-nowrap leading-[20px] rounded-[8px] md:p-[12px_20px] sm:w-full">
+            <FormControl sx={{ width: "100%" }}>
+              <InputLabel id="demo-simple-select-autowidth-label">
+                Service
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                onChange={handleChange}
+                autoWidth
+                label="Service"
+                defaultValue="Web development"
+                {...register("service")}
+              >
+                <MenuItem value={"Web development"} selected>
+                  Web development
+                </MenuItem>
+                <MenuItem value={"UX&UI"}>UX&UI</MenuItem>
+                <MenuItem value={"CRM systems"}>CRM systems</MenuItem>
+                <MenuItem value={"Branding"}>Branding</MenuItem>
+                <MenuItem value={"Video editing"}>Video editing</MenuItem>
+              </Select>
+            </FormControl>
+
+            <button
+              id="formBtn"
+              className="w-[50%] p-[10px_16px] bg-[#3461FF] text-[#fff] font-medium text-[16px] whitespace-nowrap leading-[20px] rounded-[8px] md:p-[12px_20px] sm:w-full"
+            >
               Send
             </button>
           </form>
@@ -85,7 +153,7 @@ export default function ContactUs() {
                     }}
                   />
                   <span className="text-[16px] leading-[22px] font-normal">
-                    nimadir@gmail.com
+                    Imcon@gmail.com
                   </span>
                 </a>
               </li>
@@ -99,7 +167,7 @@ export default function ContactUs() {
                     }}
                   />
                   <span className="text-[16px] leading-[22px] font-bold text-[#3461FF]">
-                    t.me/nimadirgroup
+                    t.me/Imcon_company
                   </span>
                 </a>
               </li>

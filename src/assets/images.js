@@ -22,32 +22,7 @@ import icon_UXUI from "../assets/images/icon_UXUI.png";
 import icon_crm from "../assets/images/icon_crm.png";
 import airplane from "../assets/images/airplane.png";
 
-import javasicrpIcon from "./images/icon_js.png";
-import pytonIcon from "./images/icon_py.png";
-import reactIcon from "./images/icon_ract.png";
-import vueIcon from "./images/icon_vue.png";
-import photoIcon from "./images/icon_photo.png";
-import nodeJsIcon from "./images/icon_nod.png";
-import premerPro from "./images/icon_premer.png";
-import figma from "./images/icon_figma.png";
-import nextIcon from "./images/nextIcon.png";
-import davinchi from "./images/davinchiIcon.png";
-import phpIcon from "./images/phpIcon.png";
-import XDicon from "./images/XDicon.png";
-
 export default {
-  XDicon,
-  phpIcon,
-  davinchi,
-  nextIcon,
-  vueIcon,
-  photoIcon,
-  nodeJsIcon,
-  premerPro,
-  figma,
-  reactIcon,
-  pytonIcon,
-  javasicrpIcon,
   spotify,
   google,
   uber,

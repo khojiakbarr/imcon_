@@ -38,8 +38,8 @@ export default function Hero({ scrollToSection }) {
             </button>
           </div>
 
-          <div className="max-w-[800px] md:w-full px-[20px] lg:w-[500px] ">
-            <img className="bg_hero" src={images.bg_hero} alt="" />
+          <div  className="max-w-[800px] md:w-full px-[20px] lg:w-[500px] ">
+            <img lang="3" className="bg_hero" src={images.bg_hero} alt="" />
           </div>
         </div>
       </div>
