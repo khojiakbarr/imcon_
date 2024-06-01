@@ -6,7 +6,7 @@ export default function Portfolio() {
   return (
     <div
       id="portfolioSec"
-      className="w-full py-[80px] sm:py-[20px] lg:py-[40px]"
+      className="w-full pt-[80px] sm:pt-[20px] lg:pt-[40px] "
     >
       <div className="container flex flex-col items-center">
         <h2 className="text-[#3461FF] sm:text-[14px]">Our Portfolio</h2>
@@ -20,56 +20,9 @@ export default function Portfolio() {
           Check our awesome portfolio<span className="text-[#3461FF]">.</span>
         </h3>
 
-        <h4 className="mt-5 mb-5 sm:mt-3 sm:text-[14px]">
+        <h4 className="mt-5 mb-2 sm:mt-3 sm:text-[14px]">
           See what we do for our clients
         </h4>
-
-        <SecondaryButton />
-
-        <div className=" grid grid-cols-3 place-items-center grid-flow-row gap-8 mt-10 lg:grid-cols-2 md:gap-4 sm:grid-cols-1 sm:place-items-start">
-          <PortfolioCard
-            image={
-              "https://tse3.mm.bing.net/th?id=OIP.LZ1ERbV5ErFdJP0SNa69nwHaE8&pid=Api&P=0&h=220"
-            }
-            title={"IT Marketing"}
-            subtitle={"Marketing"}
-          />
-          <PortfolioCard
-            image={
-              "https://tse3.mm.bing.net/th?id=OIP.keD7-eq5pl0ldAgZ0m7U_wHaFS&pid=Api&P=0&h=220"
-            }
-            title={"Managed IT Service"}
-            subtitle={"Service"}
-          />
-          <PortfolioCard
-            image={
-              "https://tse2.mm.bing.net/th?id=OIP.KQPk3S_UdKBsbRZVb9DnagHaEa&pid=Api&P=0&h=220"
-            }
-            title={"Security Services"}
-            subtitle={"Service"}
-          />
-          <PortfolioCard
-            image={
-              "https://tse3.mm.bing.net/th?id=OIP.LZ1ERbV5ErFdJP0SNa69nwHaE8&pid=Api&P=0&h=220"
-            }
-            title={"IT Marketing"}
-            subtitle={"Marketing"}
-          />
-          <PortfolioCard
-            image={
-              "https://tse3.mm.bing.net/th?id=OIP.keD7-eq5pl0ldAgZ0m7U_wHaFS&pid=Api&P=0&h=220"
-            }
-            title={"Managed IT Service"}
-            subtitle={"Service"}
-          />
-          <PortfolioCard
-            image={
-              "https://tse2.mm.bing.net/th?id=OIP.KQPk3S_UdKBsbRZVb9DnagHaEa&pid=Api&P=0&h=220"
-            }
-            title={"Security Services"}
-            subtitle={"Service"}
-          />
-        </div>
       </div>
     </div>
   );

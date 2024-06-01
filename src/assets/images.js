@@ -21,8 +21,18 @@ import icon_design from "../assets/images/icon_design.png";
 import icon_UXUI from "../assets/images/icon_UXUI.png";
 import icon_crm from "../assets/images/icon_crm.png";
 import airplane from "../assets/images/airplane.png";
-
+import portfolioPageImage from "../assets/images/portfolioPage.jpg";
+import js from "../assets/images/js.svg";
+import html from "../assets/images/html.svg";
+import sass from "../assets/images/sass.svg";
+import nodejs from "../assets/images/nodejs.svg";
+import caex1 from "../assets/images/caex1.png";
+import caex2 from "../assets/images/caex2.png";
+import caex3 from "../assets/images/caex3.png";
 export default {
+  caex1,
+  caex2,
+  caex3,
   spotify,
   google,
   uber,
@@ -46,4 +56,9 @@ export default {
   icon_UXUI,
   icon_crm,
   airplane,
+  portfolioPageImage,
+  js,
+  html,
+  sass,
+  nodejs,
 };

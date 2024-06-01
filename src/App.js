@@ -1,5 +1,4 @@
 import "./App.css";
-import Portfolio from "./components/sections/Portfolio";
 import CompaniesWeWork from "./components/sections/CompaniesWeWork";
 import ContactUs from "./components/sections/ContactUs";
 import Faq from "./components/sections/Faq";
@@ -13,7 +12,9 @@ import Service from "./components/sections/Service";
 import Advantages from "./components/sections/Advantages/Advantages";
 import ScrollSmoother from "gsap/ScrollSmoother";
 import gsap from "gsap";
-
+import { Route, Routes } from "react-router-dom";
+import PortfolioPage from "./pages/PortfolioPage";
+import Portfolio from "./components/sections/Portfolio";
 function App() {
   gsap.registerPlugin(ScrollSmoother);
   const wrapperRef = useRef();
@@ -48,6 +49,7 @@ function App() {
         <HowWeWork />
         <OurClients />
         <Portfolio />
+        <PortfolioPage />
         <CompaniesWeWork />
         <Faq />
         <ContactUs />
