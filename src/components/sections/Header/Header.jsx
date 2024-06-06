@@ -11,6 +11,7 @@ export default function Header({ scrollToSection }) {
       }
     };
   }, []);
+  
 
   return (
     <div

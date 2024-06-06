@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import PortfolioCard from "../components/PortfolioPage/PortfolioCard";
 import images from "../assets/images";
 import StartIcon from "@mui/icons-material/Start";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
+import { Link } from "react-router-dom";
 
-export default function PortfolioPage() {
+export default function PortfolioPage({ isPage }) {
+  const [state, setState] = useState({
+    count: 1,
+    portfolio: [],
+    isShow: false,
+  });
   const data = [
     {
       name: "CAEx Uzbekistan",
@@ -33,7 +40,7 @@ export default function PortfolioPage() {
           image: images.nodejs,
         },
       ],
-      images: [images.caex1, images.caex2, images.caex3],
+      url: "https://caexuzbekistan.com/",
       deliveryPeriod: {
         time: "2023-04-25",
         image: <MobileFriendlyIcon />,
@@ -65,11 +72,7 @@ export default function PortfolioPage() {
           image: images.nodejs,
         },
       ],
-      images: [
-        images.portfolioPageImage,
-        images.portfolioPageImage,
-        images.portfolioPageImage,
-      ],
+      url: "https://caexuzbekistan.com/",
       deliveryPeriod: {
         time: "2023-04-25",
         image: <MobileFriendlyIcon />,
@@ -77,14 +80,35 @@ export default function PortfolioPage() {
     },
   ];
 
+  function showPortfolio(show) {
+    let newData = [];
+    for (let i = 0; i < state.count; i++) {
+      newData.push(data[i]);
+    }
+    setState({ ...state, portfolio: show ? newData : data });
+  }
+
+  useEffect(() => {
+    showPortfolio(isPage)
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="py-[60px]">
       <div className="container">
         <div className="flex flex-col gap-5" id="galleryWrapper">
-          {data.map((item, index) => {
+          {state.portfolio.map((item, index) => {
             return <PortfolioCard data={item} key={index} />;
           })}
         </div>
+
+        {isPage ? (
+          <Link to={"/portfolio"}>
+            <PrimaryButton showButton={true} text={"Show more"} />
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
